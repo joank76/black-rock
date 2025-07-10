@@ -1,0 +1,218 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "username": "admin",
+      "email": "usuario1@email.com",
+      "role": "admin",
+      "password": "admin123",
+      "balance": 5555,
+      "balanceNFT": 0,
+      "accounts": [
+        {
+          "name": "PNL Ganancia Total.",
+          "balance": 55000,
+          "valuation": 0,
+          "availableFunds": 0
+        },
+        {
+          "name": "Credito",
+          "balance": 10000,
+          "valuation": 0,
+          "availableFunds": 5000
+        }
+      ],
+      "nfts": [
+        {
+          "price": "112313",
+          "name": "123123",
+          "description": "23123123123",
+          "externalLink": "12313123",
+          "unlocked": false,
+          "unlockContent": "",
+          "explicit": false,
+          "blockchain": "Ethereum",
+          "gestionar": "Binance",
+          "imageUrl": "/nft-images/1-1750398049712.jpg",
+          "createdAt": "2025-06-20T05:40:49.727Z"
+        },
+        {
+          "price": "8585858",
+          "name": "alejandra",
+          "description": "123456",
+          "externalLink": "si",
+          "unlocked": false,
+          "unlockContent": "",
+          "explicit": false,
+          "blockchain": "Ethereum",
+          "gestionar": "Binance",
+          "imageUrl": "/nft-images/1-1750398143937.jpg",
+          "createdAt": "2025-06-20T05:42:23.940Z"
+        },
+        {
+          "price": "8585858",
+          "name": "Proyecto1 ",
+          "description": "123456",
+          "externalLink": "si",
+          "unlocked": false,
+          "unlockContent": "",
+          "explicit": false,
+          "blockchain": "Ethereum",
+          "gestionar": "Binance",
+          "imageUrl": "/nft-images/1-1750398482675.jpg",
+          "createdAt": "2025-06-20T05:48:02.677Z"
+        },
+        {
+          "price": "8585858",
+          "name": "Proyecto1 ",
+          "description": "123456",
+          "externalLink": "si",
+          "unlocked": false,
+          "unlockContent": "",
+          "explicit": false,
+          "blockchain": "Ethereum",
+          "gestionar": "Binance",
+          "imageUrl": "/nft-images/1-1750523187155.jpg",
+          "createdAt": "2025-06-21T16:26:27.156Z"
+        },
+        {
+          "price": "10",
+          "name": "Proyecto2",
+          "description": "123456TOR",
+          "externalLink": "si TOTALC",
+          "unlocked": false,
+          "unlockContent": "",
+          "explicit": false,
+          "blockchain": "Bitcoin",
+          "gestionar": "Cripto.com",
+          "imageUrl": "/nft-images/1-1750531422135.jpg",
+          "createdAt": "2025-06-21T18:43:42.136Z"
+        },
+        {
+          "price": "10",
+          "name": "Proyecto2",
+          "description": "123456TOR",
+          "externalLink": "si TOTALC",
+          "unlocked": false,
+          "unlockContent": "",
+          "explicit": false,
+          "blockchain": "Bitcoin",
+          "gestionar": "Cripto.com",
+          "imageUrl": "/nft-images/1-1750531425336.jpg",
+          "createdAt": "2025-06-21T18:43:45.338Z"
+        },
+        {
+          "price": "10",
+          "name": "Proyecto2",
+          "description": "123456TOR",
+          "externalLink": "si TOTALC",
+          "unlocked": false,
+          "unlockContent": "",
+          "explicit": false,
+          "blockchain": "Bitcoin",
+          "gestionar": "Cripto.com",
+          "imageUrl": "/nft-images/1-1750534289313.jpg",
+          "createdAt": "2025-06-21T19:31:29.313Z"
+        },
+        {
+          "price": "10",
+          "name": "Proyecto2",
+          "description": "123456TOR",
+          "externalLink": "si TOTALC",
+          "unlocked": false,
+          "unlockContent": "",
+          "explicit": false,
+          "blockchain": "Bitcoin",
+          "gestionar": "Cripto.com",
+          "imageUrl": "/nft-images/1-1750534741473.webp",
+          "createdAt": "2025-06-21T19:39:01.473Z"
+        }
+      ],
+      "profileImage": "https://blackrockdpto.net/profile-images/1-1751874952116.jpeg",
+      "TradingBots": [
+        {
+          "timeOfInvestment": "TESlA",
+          "investment": "20",
+          "totalProfit": "100",
+          "transactions": "1",
+          "amountPerInvestment": "20",
+          "price": "300",
+          "avgBuyPrice": "310",
+          "bought": "320",
+          "userId": 1,
+          "email": "usuario1@email.com",
+          "enabled": false
+        },
+        {
+          "timeOfInvestment": "NVIDIA1",
+          "investment": "400",
+          "totalProfit": "12311",
+          "transactions": "1233",
+          "amountPerInvestment": "2",
+          "price": "2",
+          "avgBuyPrice": "110",
+          "bought": "300",
+          "userId": 8267,
+          "email": "p@gmail.com"
+        }
+      ]
+    },
+    {
+      "id": 6346,
+      "username": "DIEGO GARCIA",
+      "email": "DIEGOGARCIA25@PORTUGAL",
+      "role": "user",
+      "password": "123456788",
+      "balance": 55000,
+      "balanceNFT": 55000,
+      "nfts": [],
+      "accounts": [
+        {
+          "name": "PNL TOLTAL.",
+          "balance": 50000,
+          "valuation": 0,
+          "availableFunds": 55000
+        }
+      ],
+      "profileImage": null
+    },
+    {
+      "id": 8,
+      "username": "CESAR DIAZ",
+      "email": "cesardiazcybercapital@gmail.com",
+      "role": "user",
+      "password": "12345678",
+      "balance": 5000,
+      "balanceNFT": 5000,
+      "nfts": [],
+      "accounts": [
+        {
+          "name": "YPF",
+          "balance": 1000,
+          "valuation": 0,
+          "availableFunds": 0
+        }
+      ],
+      "profileImage": "/profile-images/8-1750532368224.jpg"
+    },
+    {
+      "id": 6845,
+      "username": "juldor gutierrez",
+      "email": "juldor@email.es",
+      "role": "user",
+      "password": "juldor123",
+      "balance": 2120303,
+      "balanceNFT": 230000,
+      "nfts": [],
+      "accounts": [
+        {
+          "name": "fff",
+          "balance": 345556,
+          "valuation": 6,
+          "availableFunds": 655443333
+        }
+      ],
+      "profileImage": null
+    }
+  ]
+}
