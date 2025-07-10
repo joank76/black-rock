@@ -1,51 +1,65 @@
-"use client";
-
-import { useState, useEffect } from 'react';
-import Image from '@/components/ui/image';
-import Avatar from '@/components/ui/avatar';
-import RetroProfile from '@/components/profile/retro-profile';
 // static data (solo como valor inicial hasta que llegue el fetch)
 import { authorData } from '@/data/static/author';
 
-const AuthorProfilePageRetro = () => {
-  // Estado inicial: usamos authorData.avatar.thumbnail o un placeholder
-  const [profileImage, setProfileImage] = useState<string>(
-    authorData?.avatar?.thumbnail || '/default-avatar.png'
-  );
-  const [userId, setUserId] = useState<number | null>(null);
+// Es una buena práctica definir los tipos de datos que esperas
+interface UserProfile {
+  id: number;
+  profileImage?: string;
+  // ...añade aquí otras propiedades que esperes del usuario
+}
 
-  // Obtener el userId desde localStorage (o tu lógica de autenticación)
+const AuthorProfilePageRetro = () => {
+  const [user, setUser] = useState<UserProfile | null>(null);
+  const [isLoading, setIsLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
+
   useEffect(() => {
-    const storedUser = localStorage.getItem('userData');
-    if (storedUser) {
-      const userData = JSON.parse(storedUser);
-      if (userData.id) setUserId(userData.id);
-      if (userData.profileImage) setProfileImage(userData.profileImage);
-    }
+    const fetchUserProfile = async () => {
+      setIsLoading(true);
+      setError(null);
+
+      try {
+        // 1. Obtener el ID del usuario desde el localStorage
+        const storedData = localStorage.getItem('userData');
+        if (!storedData) {
+          throw new Error('No se encontraron datos de usuario en localStorage.');
+        }
+        const userId = JSON.parse(storedData)?.id;
+        if (!userId) {
+          throw new Error('El ID de usuario no es válido.');
+        }
+
+        // 2. Llamar a la API para obtener TODOS los usuarios.
+        // En Vercel, no necesitas la URL completa, una ruta relativa es suficiente.
+        const response = await fetch(`/api/users`);
+        if (!response.ok) {
+          throw new Error(`Error de red: ${response.statusText}`);
+        }
+        const data = await response.json();
+
+        // 3. Encontrar el usuario específico
+        const foundUser = data.users?.find((u: any) => u.id === userId);
+
+        if (!foundUser) {
+          // ¡Aquí está la clave! Si no se encuentra, lanzamos el error exacto que ves.
+          throw new Error('Error! No Result Found');
+        }
+
+        setUser(foundUser);
+      } catch (err) {
+        const message = err instanceof Error ? err.message : 'Ocurrió un error inesperado.';
+        console.error('Fallo al cargar el perfil:', err);
+        setError(message);
+      } finally {
+        setIsLoading(false);
+      }
+    };
+
+    fetchUserProfile();
   }, []);
 
-  // useEffect que consulta al backend y actualiza profileImage
-  useEffect(() => {
-    if (!userId) return;
-    fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/users`)
-      .then((res) => res.json())
-      .then((data) => {
-        const user = data.users.find((u: any) => u.id === userId);
-        if (user?.profileImage) {
-          setProfileImage(user.profileImage);
-          // Actualiza también en localStorage para mantener sincronizado
-          const storedUser = localStorage.getItem('userData');
-          if (storedUser) {
-            const userData = JSON.parse(storedUser);
-            userData.profileImage = user.profileImage;
-            localStorage.setItem('userData', JSON.stringify(userData));
-          }
-        }
-      })
-      .catch((err) => {
-        console.error("Error al obtener la imagen de perfil:", err);
-      });
-  }, [userId]);
+  if (isLoading) return <div style={{ padding: '2rem', textAlign: 'center' }}>Cargando perfil...</div>;
+  if (error) return <div style={{ padding: '2rem', textAlign: 'center', color: 'red' }}>{error}</div>; // Mostramos el error en la UI
 
   return (
     <>
@@ -65,24 +79,15 @@ const AuthorProfilePageRetro = () => {
       <div className="mx-auto flex w-full shrink-0 flex-col md:px-4 xl:px-6 3xl:max-w-[1700px] 3xl:px-12">
         <Avatar
           size="xl"
-          image={profileImage}
+          image={user?.profileImage || authorData?.avatar?.thumbnail}
           alt="Author"
           className="
             z-10 
-            mx-auto 
-            -mt-12 
-            dark:border-gray-500 
-            sm:-mt-14 
-            md:mx-0 
-            md:-mt-16 
-            xl:mx-0 
             3xl:-mt-20
           "
         />
-        <RetroProfile />
+        {/* Ahora podemos pasar los datos del usuario a los componentes hijos */}
+        <RetroProfile userData={user} />
       </div>
     </>
   );
-};
-
-export default AuthorProfilePageRetro;
