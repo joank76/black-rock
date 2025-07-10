@@ -1,3 +1,12 @@
+import { NextResponse } from 'next/server';
+import usersData from '@/data/users.json'; // Importa el JSON directamente
+
+export async function GET(request: Request) {
+  // Simplemente devuelve los datos importados.
+  // Next.js se encarga de que el archivo esté disponible.
+  return NextResponse.json(usersData);
+}
+
 const routes = {
   coinAll: '/coinAll',
   home: '/account',
