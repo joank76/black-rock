@@ -1,4 +1,4 @@
-// static data (solo como valor inicial hasta que llegue el fetch)
+ // static data (solo como valor inicial hasta que llegue el fetch)
 import { authorData } from '@/data/static/author';
 
 // Es una buena práctica definir los tipos de datos que esperas
